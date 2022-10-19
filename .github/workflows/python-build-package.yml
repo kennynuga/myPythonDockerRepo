@@ -53,6 +53,6 @@ jobs:
     # PyTest library version.
         version: 6.2.5
     # Parameters, if any, to provide to the test. Provide them starting with -q, for instance `-q --param1=value1 --param2=value2`
-        args: # optional, default is 
+        args: -q --param1=value1 --param2=value2
     # File name where the results will be generated. File is XML.
         outputFile: # optional, default is ${{ github.workspace }}/test-results/results.xml
