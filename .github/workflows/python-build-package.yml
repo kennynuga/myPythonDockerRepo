@@ -35,6 +35,24 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with pytest
-      run: |
-        pytest
+    - name: Run tests with PyTest
+  # You may pin to the exact commit or the version.
+  # uses: pyrunit/pytest-action@36ed68448fd62b513ffb24dc2439caadd8e1ebd0
+      uses: pyrunit/pytest-action@v1.0.0
+      with:
+    # Directory where the source code is located. Defaults to current directory.
+        source: app.py
+    # PyTest configuration file path (.ini).
+        configuration: # optional, default is 
+    # Indicates if the tests will run using an specific conda environment.
+        useConda: # optional, default is false
+    # Name of the conda environment to use. Required if useConda is true.
+        condaEnvName: # optional, default is 
+    # Folder where test are placed. Defaults to tests.
+        testFolder: # default is tests
+    # PyTest library version.
+        version: 6.2.5
+    # Parameters, if any, to provide to the test. Provide them starting with -q, for instance `-q --param1=value1 --param2=value2`
+        args: # optional, default is 
+    # File name where the results will be generated. File is XML.
+        outputFile: # optional, default is ${{ github.workspace }}/test-results/results.xml
